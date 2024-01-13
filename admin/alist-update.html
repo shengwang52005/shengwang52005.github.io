@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入样式表 -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <h1>管理面板 - alist-update数据更新</h1>
+  <form action="/admin/alist-update" method="POST">
+    <label for="password">管理密码:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="time">更新时间:</label>
+    <input type="text" id="time" name="time" placeholder="留空以自动获取时间">
+    <br>
+    <label for="message">信息:</label>
+    <input type="text" id="message" name="message" required>
+    <br>
+    <label for="update-file">更新文件:</label>
+    <input type="text" id="update-file" name="update-file" required>
+    <br>
+    <button type="submit">更新数据！</button>
+  </form>
+</body>
+</html>

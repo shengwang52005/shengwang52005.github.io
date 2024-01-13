@@ -1,1 +1,47 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入样式表 -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <title>ZZGroup!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut" href="favicon.ico">
+</head>
+<body>
+  <!-- 页面内容 -->
+  <div class="container">
+    <h1>欢迎来到我的个人主页~</h1>
+    <p>美观 · 艺术是永恒之美</p>
+    <button id="recordButton">点击一下，证明我访问了</button>
+    <button class="api-button" id="apiButton">API服务</button>
+  </div>
+
+  <p id="hitokoto">
+    <a href="#" id="hitokoto_text">:D 获取中...</a>
+  </p>
+
+  <h2>拾穗_(:з」∠)_</h2>
+  <script>
+    fetch('https://v1.hitokoto.cn')
+      .then(response => response.json())
+      .then(data => {
+        const hitokoto = document.querySelector('#hitokoto_text')
+        hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+        console.log(`https://hitokoto.cn/?uuid=${data.uuid}`)
+        hitokoto.innerText = data.hitokoto
+      })
+      .catch(console.error)
+  </script>
+  
+  <!-- 显示统计信息 -->
+  <div class="footer">
+    <h5>不是服务器所以只会统计1个ip（悲）</h5>
+    <p>本站被访问了 <span id="visitCount">0</span> 次，共有 <span id="uniqueIP">0</span> 个不同的IP访问</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
