@@ -9,12 +9,11 @@
         <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
         <style>
             body {
-            	/* 图片引自百度 可根据需求变换 */
-                background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F017206591c1f38a801216a3e5f6158.png%402o.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1656833203&t=1dbf3ec360d6fa6b3811f7b276016acd");
+            	/* 随机背景api */
+                background-image: url("https://www.dmoe.cc/random.php");
             }
             .text {
-                color: white;
-                text-shadow: 5px 5px gray;  /* 字体阴影 */
+                color: rgb(255, 145, 0);
                 font-size: 35px;
                 font-family: STXingkai;
             }
@@ -33,7 +32,7 @@
         	// 异步ajax
             $.ajax({
                 type: 'GET',
-                url: 'https://api.fghrsh.net/hitokoto/rand/?encode=jsc&uid=3335',
+                url: 'https://v1.hitokoto.cn/ ',
                 success: function(data){
                     $(".text").text(data.hitokoto);  // 获取名言内容
                     if (data.source){     // 如果来源不为空
