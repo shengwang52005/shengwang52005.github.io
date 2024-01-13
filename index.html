@@ -1,57 +1,24 @@
 <!DOCTYPE html>
 <html lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Blog Page</title>
-        <!-- 引入jQuery3.6.0 -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-        <style>
-            body {
-            	/* 随机背景api */
-                background-image: url("https://www.dmoe.cc/random.php");
-            }
-            .text {
-                color: rgb(255, 145, 0);
-                font-size: 35px;
-                font-family: STXingkai;
-            }
-            .source {
-                color: white;
-                font-size: 25px;
-                padding-left: 40%;
-                font-family: STXingkai;
-            }
-            .show-sentence {
-                display: none;    /* 一开始隐藏div标签 */
-                text-align: center;
-            }
-        </style>
-        <script>
-        	// 异步ajax
-            $.ajax({
-                type: 'GET',
-                url: 'https://v1.hitokoto.cn/ ',
-                success: function(data){
-                    $(".text").text(data.hitokoto);  // 获取名言内容
-                    if (data.source){     // 如果来源不为空
-                        $(".author").text(data.source);
-                    } else {
-                        $(".source").hide();   // 隐藏来源
-                    }
-                    // 淡入显示
-                    $(".show-sentence").fadeIn(4000)
-                },
-            });
-        </script>
+<head>
+    <meta charset="utf-8">
+    <title>拾穗🌾</title>
+    <!-- 引入jQuery3.6.0 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     </head>
-    <body>
-        <div class="show-sentence">
-            <p class="text"></p>
-            <p class="source">
-                ———— <span class="author"></span>
-            </p>
-        </div>
-    </body>
+<body>
+    <p id="hitokoto">
+        <a href="#" id="hitokoto_text">:D 获取中...</a>
+      </p>
+      <script>
+        fetch('https://v1.hitokoto.cn')
+          .then(response => response.json())
+          .then(data => {
+            const hitokoto = document.querySelector('#hitokoto_text')
+            hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+            hitokoto.innerText = data.hitokoto
+          })
+          .catch(console.error)
+      </script>
+</body>
 </html>
