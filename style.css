@@ -1,0 +1,7 @@
+h1 {
+    font-size:250%;
+    color:rgb(225, 243, 61), red;
+    background: linear-gradient(70deg, blue, pink);
+    text-align:center;
+    font-family: "楷体","楷体_GB2312";
+}
