@@ -1,5 +1,5 @@
-h1 {
-    font-size:250%;
+a {
+    font-size:75px;
     color: rgb(255, 217, 0);
     text-align:center;
     font-family: "楷体","楷体_GB2312";
@@ -11,15 +11,33 @@ h1 {
     padding: 0;
 }
 
-a {
-    font-size:250%;
-    color: rgb(255, 217, 0);
-    text-align:center;
+body {
+    background: url('https://t.mwm.moe/fj/') center center no-repeat;
+    background-size: cover;
+    text-align: center; /* 居中文本 */
     font-family: "楷体","楷体_GB2312";
-    display: flex;
-    justify-content: center;
-    align-items :center;
     height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+#hitokoto {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px; /* 调整上边距 */
+}
+
+#hitokoto_text {
+    font-size: 75px;
+    color: rgb(255, 217, 0);
+    text-align: center;
+}
+
+#hitokoto_author {
+    margin-top: 10px; /* 调整作者下边距 */
+    font-size: 50px;
+    color: darkgoldenrod;
+    /*margin-right: 0px; /* 右移文本 */
 }

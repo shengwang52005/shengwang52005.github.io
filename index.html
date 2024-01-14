@@ -3,23 +3,25 @@
 <head>
     <meta charset="utf-8">
     <title>拾穗🌾</title>
-    <!-- 引入jQuery3.6.0 -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <link type="text/css" rel="stylesheet" href="style.css" />
-    <body background="https://t.mwm.moe/fj/"></body>
-    </head>
+</head>
 <body>
-    <h1 id="hitokoto">
-        <a id="hitokoto_text">:D 获取中...</a>
-    </h1>
-      <script>
+    <div id="hitokoto">
+        <h1 id="hitokoto_text">:D 获取中...</h1>
+        <p id="hitokoto_author"></p>
+    </div>
+    <script>
         fetch('https://v1.hitokoto.cn')
-          .then(response => response.json())
-          .then(data => {
-            const hitokoto = document.querySelector('#hitokoto_text')
-            hitokoto.innerText = data.hitokoto
-          })
-          .catch(console.error)
-      </script>
+            .then(response => response.json())
+            .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text');
+                const author = data.from || '';
+                hitokoto.innerText = data.hitokoto;
+                $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
+                $('#hitokoto_text').text("『" + (data.hitokoto || '') + "』");
+            })
+            .catch(console.error);
+    </script>
 </body>
 </html>
