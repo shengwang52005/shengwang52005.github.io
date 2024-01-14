@@ -1,7 +1,12 @@
 h1 {
     font-size:250%;
-    color:rgb(225, 243, 61), red;
-    background: linear-gradient(70deg, blue, pink);
+    color: rgb(255, 217, 0);
     text-align:center;
     font-family: "楷体","楷体_GB2312";
+    display: flex;
+    justify-content: center;
+    align-items :center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
