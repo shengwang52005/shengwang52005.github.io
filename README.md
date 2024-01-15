@@ -1,4 +1,21 @@
-### 这里是shengwang52005.github.io的源代码仓库，欢迎fork
-### 我也是刚开始学习，代码写的很烂，还有的是直接抄的，还请多多体贴qwq
-### 如果你不愿意让你的代码出现在这里，可以与我联系，联系方式写在https://github.com/shengwang52005/shengwang52005
-### 那么……交给你咯~！
+### 欢迎
+
+这里是miaowing
+
+欢迎来到shengwang52005.github.io的源代码存储库
+
+---
+
+给个star？fork一下？
+
+我知道我写的代码很烂啦……还有一些是直接抄的……
+
+但我一定会遵循你项目的开源许可！
+
+如果你想让我删掉，我也会删的w（联系方式写在https://github.com/shengwang52005/shengwang52005）
+
+那么……交给你咯~！
+
+---
+
+Link:[shengwang52005/shengwang52005.github.io](https://github.com/shengwang52005/shengwang52005.github.io)
