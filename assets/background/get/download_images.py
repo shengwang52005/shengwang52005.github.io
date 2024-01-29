@@ -176,7 +176,7 @@ def clean_and_rename(save_directory):
 
 if __name__ == "__main__":
     # API URL
-    api_url = "https://t.mwm.moe/fj/"
+    api_url = "https://t.mwm.moe/ycy"
 
     # 保存目录
     save_directory = r"D:\shengwang52005\shengwang52005.github.io\assets\background"
