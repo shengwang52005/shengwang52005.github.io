@@ -105,7 +105,7 @@ def download_images(api_url, save_directory):
     # 获取系统的CPU核心数
     # 注意，二选一，第一个为自动配置，第二个为手动配置，请选择其一并注释掉另一个（使用#）
     # num_threads = min(os.cpu_count(), 1024)  # 限制最大线程数为1024，可根据需要调整
-    num_threads = 128
+    num_threads = 32
 
     # 创建线程池
     threads = []
@@ -176,7 +176,7 @@ def clean_and_rename(save_directory):
 
 if __name__ == "__main__":
     # API URL
-    api_url = "https://t.mwm.moe/ycy"
+    api_url = "https://imgapi.xl0408.top/index.php"
 
     # 保存目录
     save_directory = r"D:\shengwang52005\shengwang52005.github.io\assets\background"
