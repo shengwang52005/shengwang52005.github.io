@@ -1,44 +1,151 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-cn">
+
 <head>
-    <meta charset="utf-8">
-    <title>拾穗🌾</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/sun0225SUN/photos/img/20210715233345.png">
+	<title>崽崽の主页 - 深山踏红叶，耳畔闻鹿鸣</title>
+	<link rel="apple-touch-icon-precomposed" href="assets/images/touxiang.jpg">
+	<link rel="stylesheet" type="text/css" href="assets/css/h.9c69ed6c.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/nekotora.99cf6f8c.css">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137340638-1"></script>
+	<script>
+		function a() {
+			dataLayer.push(arguments)
+		}
+		window.dataLayer = window.dataLayer || [], a("js", new Date), a("config", "UA-137340638-1");
+	</script>
 </head>
+
+<!-- 页面左下方的导航 -->
 <body>
-    <div id="hitokoto">
-        <h1 id="hitokoto_text">:D 获取中...</h1>
-        <p id="hitokoto_author"></p>
-    </div>
-    <div id="buttonContainer">
-        <button id="copyButton" onclick="copyToClipboard()">复制到剪贴板</button>
-    </div>
-    <script>
-        document.getElementById('copyButton').addEventListener('click', function () {
-            const hitokotoText = document.getElementById('hitokoto_text').innerText;
-            const hitokotoAuthor = document.getElementById('hitokoto_author').innerText;
-            const copy = `${hitokotoText}${hitokotoAuthor}`;
+	<nav>
+		<a class="clip"></a> <a href="https://shengwang52005.github.io" target="_blank">首页</a>
+		<a class="clip"></a> <a href="https://shengwang52005.github.io/coming_soon.html" target="_blank">留言板</a>
+	</nav>
 
-            navigator.clipboard.writeText(copy)
-                .then(() => {
-                    alert('复制完成');
-                })
-                .catch(err => {
-                    console.error('不支持复制到剪切板，请更换浏览器', err);
-                });
-        });
+	<body>
+		<div class="background">
+			<canvas id="startrack"></canvas>
+			<div class="cover"></div>
+		</div>
+		<div class="main">
+			<div class="ch intro">
+				<div class="container">
+					<div class="hello">
+						<h1 id="slogan">思考中...</h1>
+						<h2>
+							<div class="circle"> <span></span> <span></span>
+								<span></span>
+							</div>崽崽在努力
+						</h2>
+					</div>
+				</div>
+			</div>
+			<div class="ch about">
+				<div class="container">
+					<h2 class="chtitle"><span>Who</span> am <span>I?</span></h2>
+					<h3 class="chtitle"><span>我</span> 是 <span>谁？</span></h3>
+					<div class="clear">
+						<div class="introduct">
+							<img class="avatar"
+								src="assets\images\touxiang.jpg">
+							<p>“活好当下，看好未来”</p>
+							<div class="chatbox">
+								<div class="line loading"> <span></span>
+									<span></span> <span></span>
+								</div>
+							</div>
+						</div>
+						<ul class="skill clear">
+							<li>
+								<p>面向CV</p>
+								<div class="progress">
+									<div style="width:100%;"></div>
+									<span>使用面向CV编程的能力</span>
+								</div>
+							</li>
+							<li>
+								<p>独自敲代码</p>
+								<div class="progress">
+									<div style="width:23%;"></div>
+									<span>使用自己的脑子的能力</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="find ch">
+				<div class="container links">
+					<h2 class="chtitle"><span>Where</span> am I?</h2>
+					<h3 class="chtitle"><span>我</span> 在 <span>哪？</span></h3>
+					<div class="clear col-3">
+					<div class="clear">
+						<a href="https://twitter.com/miaowing123" target="_blank">
+							<div class="item">
+								<div class="bg" style="background-color:#28a9e0"></div>
+								<div class="inner"> <i class="icon-twitter"></i> <span>Twitter</span> </div>
+							</div>
+						</a>
+						<a href="https://github.com/shengwang52005" target="_blank">
+							<div class="item">
+								<div class="bg" style="background-color:#353535"></div>
+								<div class="inner"> <i class="icon-github"></i> <span>Github</span> </div>
+							</div>
+						</a>
+						<a href="https://space.bilibili.com/630655141"
+							target="_blank">
+							<div class="item">
+								<div class="bg" style="background-color:#f9a2a8"></div>
+								<div class="inner"> <i class="icon-bilibili"></i>
+									<span>Bilibili</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="gate ch">
+				<div class="container links">
+					<h2 class="chtitle">Anything <span>Else?</h2>
+					<h3 class="chtitle"><span>还有</span> 吗？</h3>
+					<!-- 链接部分 -->
+					<!-- <div class="clear"> <a href="https://shengwang52005.github.io" target="_blank">
+							<div class="item">
+								<div class="avatar"> <img
+										src="assets\images\link-image.jpg">
+								</div>
+								<div class="inner">
+									<h5>shengwang52005</h5>
+									<p>我的github主页</p>
+								</div>
+							</div>
+						</a>
+					-->
+					<h2 class="chtitle">感谢你的来访，让我们一起安静地听听音乐吧——</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
 
-        fetch('https://international.v1.hitokoto.cn/')
-            .then(response => response.json())
-            .then(data => {
-                const hitokoto = document.querySelector('#hitokoto_text');
-                const author = data.from || '';
-                hitokoto.innerText = data.hitokoto;
-                $('#hitokoto_text').text("『" + (data.hitokoto || '') + "』");
-                $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
-            })
-            .catch(console.error);
-    </script>
-</body>
+		<div class="footer ch">
+			<div class="container">
+				<h3>最后</h3>
+				<p>让当下成为永恒</p>
+				<p class="c"><a href="/" target="_blank">不要让自己后悔</a></p>
+			</div>
+		</div>
+		</div>
+		<script src="assets/js/page.3a0791a3.js"></script>
+		<script type="text/javascript" src="assets/js/stats.js" charset="UTF-8">
+		</script>
+
+		<audio autoplay>
+			<source src="https://api.uomg.com/api/rand.music?sort=热歌榜" type="audio/mpeg">
+		</audio>
+	</body>
 </html>

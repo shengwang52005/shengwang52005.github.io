@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>拾穗🌾</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="hitokoto">
+        <h1 id="hitokoto_text">:D 获取中...</h1>
+        <p id="hitokoto_author"></p>
+    </div>
+    <div id="buttonContainer">
+        <button id="copyButton" onclick="copyToClipboard()">复制到剪贴板</button>
+    </div>
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function () {
+            const hitokotoText = document.getElementById('hitokoto_text').innerText;
+            const hitokotoAuthor = document.getElementById('hitokoto_author').innerText;
+            const copy = `${hitokotoText}${hitokotoAuthor}`;
+
+            navigator.clipboard.writeText(copy)
+                .then(() => {
+                    alert('复制完成');
+                })
+                .catch(err => {
+                    console.error('不支持复制到剪切板，请更换浏览器', err);
+                });
+        });
+
+        fetch('https://international.v1.hitokoto.cn/')
+            .then(response => response.json())
+            .then(data => {
+                const hitokoto = document.querySelector('#hitokoto_text');
+                const author = data.from || '';
+                hitokoto.innerText = data.hitokoto;
+                $('#hitokoto_text').text("『" + (data.hitokoto || '') + "』");
+                $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
+            })
+            .catch(console.error);
+    </script>
+</body>
+</html>
