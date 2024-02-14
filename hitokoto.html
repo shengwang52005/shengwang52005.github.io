@@ -9,6 +9,10 @@
     <script src="assets/js/page.3a0791a3.js"></script>
 </head>
 <body>
+    <nav>
+		<a class="clip"></a> <a href="index.html" target="_blank">首页</a>
+		<a class="clip"></a> <a href="hitokoto.html" target="_blank">一言</a>
+	</nav>
     <!-- 星空画布 -->
     <canvas id="startrack" width="100%" height="100%"></canvas>
     <script>window.addEventListener('load', function() {});</script>
@@ -18,7 +22,7 @@
     </div>
     <div id="buttonContainer">
         <button id="copyButton" onclick="copyToClipboard()">复制到剪贴板</button>
-        <button id="refreshButton" onclick="refreshHitokoto()">重新获取一言</button>
+        <button id="refreshButton" onclick="refreshHitokoto();alert('因为一言api接口qps限制，可能一言不会更换~')">重新获取一言</button>
     </div>
     <script>
         // 重新获取一言
@@ -31,7 +35,6 @@
                     hitokoto.text("『" + (data.hitokoto || '') + "』");
                     $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
                 })
-                alert('因为一言api接口qps限制，可能一言不会更换~')
                 .catch(console.error);
         }
 

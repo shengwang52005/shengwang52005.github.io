@@ -161,7 +161,6 @@ nav a.time {
     opacity: 1
 }
 
-nav a.active,
 nav a:hover {
     text-decoration: underline;
     opacity: 1

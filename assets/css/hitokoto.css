@@ -6,13 +6,15 @@ body {
     padding: 0;
 }
 
-#hitokoto {
+/*背景白条*/
+/*#hitokoto {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     margin-top: 50px;
 }
+*/
 
 #hitokoto_text {
     font-size: 75px;
@@ -65,4 +67,43 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1; /* 确保画布在内容之后 */
+}
+
+nav {
+    position: fixed;
+    left: 20px;
+    bottom: 0;
+    z-index: 2333;
+    transform: rotate(-90deg) translateZ(0);
+    transform-origin: 0 0;
+    transition: all .3s ease-out;
+    vertical-align: middle;
+    font-family: Roboto, Tahoma, Consolas, Microsoft YaHei
+}
+
+nav a.clip {
+    height: 3px;
+    width: 3px;
+    background: #fff;
+    border-radius: 100%
+}
+
+nav a {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    opacity: .4;
+    transition: all .3s;
+    vertical-align: middle
+}
+
+nav a.time {
+    opacity: 1
+}
+
+nav a:hover {
+    text-decoration: underline;
+    opacity: 1
 }
