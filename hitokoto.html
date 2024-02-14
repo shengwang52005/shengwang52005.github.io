@@ -3,21 +3,51 @@
 <head>
     <meta charset="utf-8">
     <title>拾穗🌾</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/touxiang.jpg">
+    <link type="text/css" rel="stylesheet" href="assets\css\hitokoto.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+    <script src="assets/js/page.3a0791a3.js"></script>
 </head>
 <body>
+    <!-- 星空画布 -->
+    <canvas id="startrack" width="100%" height="100%"></canvas>
+    <script>window.addEventListener('load', function() {});</script>
     <div id="hitokoto">
         <h1 id="hitokoto_text">:D 获取中...</h1>
         <p id="hitokoto_author"></p>
     </div>
     <div id="buttonContainer">
         <button id="copyButton" onclick="copyToClipboard()">复制到剪贴板</button>
+        <button id="refreshButton" onclick="refreshHitokoto()">重新获取一言</button>
     </div>
     <script>
-        document.getElementById('copyButton').addEventListener('click', function () {
-            const hitokotoText = document.getElementById('hitokoto_text').innerText;
-            const hitokotoAuthor = document.getElementById('hitokoto_author').innerText;
+        // 重新获取一言
+        function refreshHitokoto() {
+            fetch('https://international.v1.hitokoto.cn/')
+                .then(response => response.json())
+                .then(data => {
+                    const hitokoto = $('#hitokoto_text');
+                    const author = data.from || '';
+                    hitokoto.text("『" + (data.hitokoto || '') + "』");
+                    $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
+                })
+                alert('因为一言api接口qps限制，可能一言不会更换~')
+                .catch(console.error);
+        }
+
+        // 设置定时器，每隔一定时间重新获取一言
+        function startAutoRefresh() {
+            setInterval(refreshHitokoto, 30000); // 30秒（半分钟）重新获取一次
+        }
+
+        // 页面加载完成后开始定时刷新
+        $(document).ready(function () {
+            startAutoRefresh();
+        });
+
+        $('#copyButton').on('click', function () {
+            const hitokotoText = $('#hitokoto_text').text();
+            const hitokotoAuthor = $('#hitokoto_author').text();
             const copy = `${hitokotoText}${hitokotoAuthor}`;
 
             navigator.clipboard.writeText(copy)
@@ -29,16 +59,16 @@
                 });
         });
 
-        fetch('https://international.v1.hitokoto.cn/')
+        fetch('https://v1.hitokoto.cn/')
             .then(response => response.json())
             .then(data => {
-                const hitokoto = document.querySelector('#hitokoto_text');
+                const hitokoto = $('#hitokoto_text');
                 const author = data.from || '';
-                hitokoto.innerText = data.hitokoto;
-                $('#hitokoto_text').text("『" + (data.hitokoto || '') + "』");
+                hitokoto.text("『" + (data.hitokoto || '') + "』");
                 $('#hitokoto_author').text("—— " + (data.from_who || '') + "「" + author + "」");
             })
             .catch(console.error);
     </script>
+    
 </body>
 </html>

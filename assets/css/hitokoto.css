@@ -1,6 +1,4 @@
 body {
-    background: url('https://imgapi.xl0408.top/index.php') center center no-repeat;
-    background-size: cover;
     text-align: center;
     font-family: "楷体", "楷体_GB2312";
     height: 100vh;
@@ -44,4 +42,27 @@ body {
 
 #copyButton:hover {
     background-color: #45a049;
+}
+
+#refreshButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#refreshButtonn:hover {
+    background-color: #45a049;
+}
+
+#startrack {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 确保画布在内容之后 */
 }
