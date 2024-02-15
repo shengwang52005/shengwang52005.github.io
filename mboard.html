@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <!-- mboard:messageboard -->
+    <title>留言版 · 一起在星空说话</title>
+    <link rel="icon" type="image/x-icon" href="assets\images\touxiang.jpg">
+    <!-- 调用css，js -->
+    <link type="text/css" rel="stylesheet" href="assets\css\stars.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+    <script src="assets/js/page.3a0791a3.js"></script>
+</head>
+<body>
+    <!-- 星空画布 -->
+    <canvas id="startrack" width="100%" height="100%" style="position: absolute; top: 0; left: 0;"></canvas>
+    <!-- 显示留言内容 -->
+    <div id="messageShower" class="message"></div>
+    <!-- 读取并显示JSON数据 -->
+    <script>
+        // 加载JSON
+        $.ajax({
+            url: './data/mboard_message.json',
+            dataType: 'json',
+            success: function(messageData) {
+                var messageShower = document.getElementById("messageShower");
+                // 构建字符串
+                var messageString = "<p>留言编号: " + messageData.id + "</p>";
+                messageString += "<p>留言时间: " + messageData.time + "</p>";
+                messageString += "<p>留言内容: " + messageData.message + "</p>";
+                // 插入到页面
+                messageShower.innerHTML = messageString;
+            }
+        });
+    </script>
+    <style>
+        .message {
+            color: red;
+        }
+    </style>
+</body>
+</html>
